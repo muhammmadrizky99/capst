@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int                   @id @default(autoincrement())
+  nama         String
+  email        String                @unique
+  password     String
+  createdAt    DateTime              @default(now())
+  answers      Answer[]
+  recommendations Recommendation[]
+  sessions     PredictionSession[]   // ganti nama agar lebih konsisten
+}
+
+model Answer {
+  id          Int                 @id @default(autoincrement())
+  question    String
+  answer      String
+  user        User                @relation(fields: [userId], references: [id])
+  userId      Int
+  session     PredictionSession   @relation(fields: [sessionId], references: [id])
+  sessionId   Int
+}
+
+model Major {
+  id              Int               @id @default(autoincrement())
+  name            String            @unique
+  description     String
+  recommendations Recommendation[]
+}
+
+model Recommendation {
+  id          Int                 @id @default(autoincrement())
+  score       Float
+  major       Major              @relation(fields: [majorId], references: [id])
+  majorId     Int
+  user        User               @relation(fields: [userId], references: [id])
+  userId      Int
+  session     PredictionSession  @relation(fields: [sessionId], references: [id])
+  sessionId   Int
+}
+
+model PredictionSession {
+  id                Int                 @id @default(autoincrement())
+  user              User                @relation(fields: [userId], references: [id])
+  userId            Int
+  createdAt         DateTime            @default(now())
+  answers           Answer[]
+  recommendations   Recommendation[]
+}
