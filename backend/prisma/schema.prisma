@@ -15,7 +15,7 @@ model User {
   createdAt    DateTime              @default(now())
   answers      Answer[]
   recommendations Recommendation[]
-  sessions     PredictionSession[]   // ganti nama agar lebih konsisten
+  sessions     PredictionSession[]  
 }
 
 model Answer {
