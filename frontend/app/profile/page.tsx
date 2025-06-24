@@ -87,7 +87,7 @@ const ProfileHeader = React.memo(({ onGoToQuestionnaire, onLogout }: { onGoToQue
           <h1 className="text-xl font-bold text-slate-800">Profil & Riwayat</h1>
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={onGoToQuestionnaire} className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-sm hover:bg-indigo-700 transition text-sm">
+          <button onClick={onGoToQuestionnaire} className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-sm hover:bg-indigo-700 transition text-sm">
             <FileText size={16} /> Prediksi Baru
           </button>
           <button onClick={onLogout} className="p-2 text-slate-500 hover:text-red-600 hover:bg-red-100 rounded-lg transition">
