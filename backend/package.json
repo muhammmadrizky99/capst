@@ -5,10 +5,12 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
     "python-shell": "^5.0.0"
   },
   "devDependencies": {
-    "prisma": "^5.22.0"
+    "jest": "^30.0.4",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^5.22.0",
+    "supertest": "^7.1.3"
   }
 }
